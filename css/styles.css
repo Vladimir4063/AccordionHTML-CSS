@@ -67,15 +67,14 @@ section{
     display: none;
 }
 
-
-/* ocultamos contenido */
-.answer {
-    /* max-height: 0;
-    overflow: hidden; */
+/* RESPUESTA */
+/* primero esta oculto */
+.answer{
+    max-height: 0;
+    overflow: hidden;
     position: relative;
     background-color: #212838;
-    color: rgba(255, 255, 255, .6);
-    font-size: 1.4rem;
+    transition: max-height 650ms;
 }
 
 .answer::before {
@@ -90,4 +89,24 @@ section{
     transform: translateY(-50%);
 }
 
+.answer p {
+    color: rgba(255, 255, 255, .6);
+    font-size: 1.4rem;
+    padding: 2rem;
+}
+
+/* evento al hacer click en la tarjeta  */
+/* agrandamos el heigth de la propiedad */
+.accordion-item:target .answer{
+    max-height: 20rem;
+}
+
+/* gestionamos los iconos + -  */
+.accordion-item:target .accordion-link .icon-add {
+    display: none;
+}
+
+.accordion-item:target .accordion-link .icon-remove {
+    display: block;
+}
 
